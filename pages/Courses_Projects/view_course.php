@@ -18,7 +18,7 @@ require_once("../../includes/db_connection.php");
 require_once("../../includes/functions.php");
 require_once("../../includes/form_functions.php");
 
-confirm_logged_in();
+//confirm_logged_in();
 
 global $connection;
 if (isset($_GET['id']) && (int) $_GET['id'] > 0) {//id of the selected course to be viewed
@@ -59,7 +59,7 @@ if (isset($_GET['id']) && (int) $_GET['id'] > 0) {//id of the selected course to
 					      <td><a href=\"update_course.php?id={$id}\" class=\"button\">Update</a></td>
 					      <td><a href=\"delete_course.php?id={$id}\" class=\"button\">Delete</a></td>
 				      </tr>";
-            } elseif (isset($courses)) {
+            } elseif (isset($courses) && !empty($courses)) {
                 while ($course = array_shift($courses)) {
                     echo "<tr>
 					          <td>Name:</td>

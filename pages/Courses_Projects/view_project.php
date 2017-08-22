@@ -18,7 +18,7 @@ require_once("../../includes/db_connection.php");
 require_once("../../includes/functions.php");
 require_once("../../includes/form_functions.php");
 
-confirm_logged_in();
+//confirm_logged_in();
 
 global $connection;
 if (isset($_GET['id']) && (int) $_GET['id'] > 0) {//id of the selected project to be viewed
@@ -65,7 +65,7 @@ if (isset($_GET['id']) && (int) $_GET['id'] > 0) {//id of the selected project t
 					      <td><a href=\"update_project.php?id={$id}\" class=\"button\">Update</a></td>
 					      <td><a href=\"delete_project.php?id={$id}\" class=\"button\">Delete</a></td>
 				      </tr>";
-            } elseif (isset($projects)) {
+            } elseif (isset($projects) && !empty($projects)) {
                 while ($project = array_shift($projects)) {
                     echo "<tr>
 					          <td>Supervisor:</td>
